@@ -2,8 +2,8 @@ package com.training.testing;
 
 import static org.junit.Assert.*;
 
-import java.util.ArrayList;
-import java.util.Hashtable;
+import java.util.*;
+import java.util.Map.Entry;
 
 import org.junit.After;
 import org.junit.Before;
@@ -49,7 +49,12 @@ public class OrderingTest {
 		w1.enterOrderDetails(2, 2);
 
 		Hashtable<Integer, OrderItem> waiterData = w1.getTableOrderMap();
-		System.out.println(waiterData);
+		Iterator<Entry<Integer, OrderItem>> entries = waiterData.entrySet().iterator();
+		for(entries.hasNext();;)
+		{
+			 Entry<Integer, OrderItem> entry = entries.next();
+			System.out.println(entry.getKey()+" : "+entry.getValue());
+		}
 
 	}
 
