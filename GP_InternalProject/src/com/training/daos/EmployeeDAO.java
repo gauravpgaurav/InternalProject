@@ -1,6 +1,8 @@
 package com.training.daos;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import com.training.entity.*;
@@ -31,8 +33,25 @@ public class EmployeeDAO implements DAO<Employee> {
 
 	@Override
 	public int add(Employee t) {
-		// TODO Auto-generated method stub
-		return 0;
+
+		String sql = "insert into " + tableName + " values(?,?,?,?)";
+		int rowAdded = 0;
+
+		try {
+
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, t.getEmployeeId());
+			pstmt.setString(2, t.getEmployeeName());
+			pstmt.setString(3, t.getEmployeeRole());
+			pstmt.setString(4, t.getEmployeePassword());
+			rowAdded = pstmt.executeUpdate();
+		}
+
+		catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+		}
+		return rowAdded;
 	}
 
 	@Override
