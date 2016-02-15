@@ -1,0 +1,56 @@
+package com.training.testing;
+
+import static org.junit.Assert.*;
+
+import java.util.ArrayList;
+import java.util.Hashtable;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+
+import com.training.entity.Dish;
+import com.training.entity.OrderItem;
+import com.training.entity.Waiter;
+
+public class OrderingTest {
+
+	@Before
+	public void setUp() throws Exception {
+	}
+
+	@After
+	public void tearDown() throws Exception {
+	}
+
+	@Ignore
+	@Test
+	public void testDish() {
+
+		Dish dishIns = new Dish(202, "Naan", true, 20, 25);
+		System.out.println(dishIns);
+		assertNotNull(dishIns);
+	}
+
+	@Test
+	public void testWaiter() {
+
+		Dish dishIns1 = new Dish(201, "Roti", true, 45, 10);
+		Dish dishIns2 = new Dish(202, "Naan", true, 20, 25);
+		Dish dishIns3 = new Dish(203, "Chicken", false, 15, 350);
+
+		Waiter w1 = new Waiter(303, "Walter", "Waiter", "patience");
+
+		w1.buildOrder(dishIns1, 4);
+		w1.enterOrderDetails(3, 1);
+
+		w1.buildOrder(dishIns3, 5);
+		w1.enterOrderDetails(2, 2);
+
+		Hashtable<Integer, OrderItem> waiterData = w1.getTableOrderMap();
+		System.out.println(waiterData);
+
+	}
+
+}

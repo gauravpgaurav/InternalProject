@@ -57,4 +57,10 @@ public class Dish {
 		this.cost = cost;
 	}
 
+	@Override
+	public String toString() {
+		return "Dish [dishId=" + dishId + ", dishName=" + dishName + ", isVeg=" + isVeg + ", availability="
+				+ availability + ", cost=" + cost + "]";
+	}
+
 }
