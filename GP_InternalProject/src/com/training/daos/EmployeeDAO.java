@@ -1,11 +1,33 @@
 package com.training.daos;
 
+import java.sql.Connection;
 import java.util.List;
 
 import com.training.entity.*;
 import com.training.interfaces.*;
+import com.training.utils.SqlConnection;
 
 public class EmployeeDAO implements DAO<Employee> {
+
+	private Connection con;
+	private String tableName;
+
+	public EmployeeDAO() {
+		super();
+		con = SqlConnection.getOracleConnection();
+	}
+
+	public EmployeeDAO(String tableName) {
+		super();
+		con = SqlConnection.getOracleConnection();
+		this.tableName = tableName;
+	}
+
+	public EmployeeDAO(Connection con, String tableName) {
+		super();
+		this.con = con;
+		this.tableName = tableName;
+	}
 
 	@Override
 	public int add(Employee t) {
