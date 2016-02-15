@@ -2,7 +2,10 @@ package com.training.daos;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.training.entity.*;
@@ -54,16 +57,61 @@ public class EmployeeDAO implements DAO<Employee> {
 		return rowAdded;
 	}
 
+	private Employee getEmployee(ResultSet rs) {
+
+		Employee emp = null;
+		try {
+
+			emp = new Employee(rs.getInt("employeeId"), rs.getString("employeeName"), rs.getString("employeeRole"),
+					rs.getString("employeePassword"));
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return emp;
+	}
+
 	@Override
 	public Employee find(int key) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from " + tableName + " where employeeId =?";
+		Employee resultEmployee = null;
+
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, key);
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+
+				resultEmployee = getEmployee(rs);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+		return resultEmployee;
 	}
 
 	@Override
 	public List<Employee> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from " + tableName;
+		ArrayList<Employee> empList = new ArrayList<Employee>();
+		Statement stmt = null;
+		try {
+			stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+
+				empList.add(getEmployee(rs));
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+		return empList;
 	}
 
 	@Override
@@ -74,8 +122,20 @@ public class EmployeeDAO implements DAO<Employee> {
 
 	@Override
 	public int delete(int key) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "delete from " + tableName + " where employeeId = " + key;
+		int rowDeleted = 0;
+
+		try {
+
+			Statement stmt = con.createStatement();
+			rowDeleted = stmt.executeUpdate(sql);
+		}
+
+		catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+		}
+		return rowDeleted;
 	}
 
 }

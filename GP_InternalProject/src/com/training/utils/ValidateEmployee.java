@@ -4,17 +4,17 @@ import java.sql.*;
 
 import com.training.entity.Employee;
 
-public class ValidateUser {
+public class ValidateEmployee {
 
 	private Connection con;
 	private ResultSet rs;
 
-	public ValidateUser() {
+	public ValidateEmployee() {
 		super();
 		con = SqlConnection.getOracleConnection();
 	}
 
-	public ValidateUser(Connection con) {
+	public ValidateEmployee(Connection con) {
 		super();
 		this.con = con;
 	}
