@@ -19,6 +19,7 @@ public class DAOtest {
 	}
 
 	@Ignore
+	@Test
 	public void testAdd() {
 		Employee emp1 = new Employee(102, "Suresh", "Chef", "stop");
 		EmployeeDAO empDAO = new EmployeeDAO("Employee");
@@ -47,6 +48,7 @@ public class DAOtest {
 	}
 
 	@Ignore
+	@Test
 	public void testFindAll() {
 
 		EmployeeDAO empDAO = new EmployeeDAO("Employee");
