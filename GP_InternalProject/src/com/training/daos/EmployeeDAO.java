@@ -115,9 +115,21 @@ public class EmployeeDAO implements DAO<Employee> {
 	}
 
 	@Override
-	public int update(int key, String newInput) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int update(int key, String newPassword) {
+		Statement s;
+		int rowUpdated = 0;
+
+		try {
+			s = (Statement) con.createStatement();
+			rowUpdated = s.executeUpdate("update " + tableName + " set " + "employeePassword='" + newPassword
+					+ "' where employeeId='" + key + "'");
+
+		} catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+		}
+
+		return rowUpdated;
 	}
 
 	@Override

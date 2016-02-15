@@ -19,42 +19,40 @@ public class ValidateEmployee {
 		this.con = con;
 	}
 
-	private void getResultSet() {
+	@SuppressWarnings("finally")
+	private Boolean getResultSet(int empId, String passWord) {
 
-		String sql = "select * from Employee";
-
-		Statement stmt = null;
+		String sql = "select * from Employee where employeeId =? and employeePassword =?";
+		Boolean result = false;
 		try {
-			stmt = con.createStatement();
-			rs = stmt.executeQuery(sql);
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, empId);
+			pstmt.setString(2, passWord);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+
+				result = true;
+			}
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
+		} finally {
+			return result;
 		}
 
 	}
 
 	public Boolean validate(Employee employeeIns) {
-		getResultSet();
 
 		Boolean result = false;
-		String employeeName, employeePassword;
+		String employeePassword;
+		int employeeId;
 
-		try {
-			while (rs.next()) {
+		employeeId = employeeIns.getEmployeeId();
+		employeePassword = employeeIns.getEmployeePassword();
 
-				employeeName = rs.getString("employeeName");
-				if (employeeName.equals(employeeIns.getEmployeeName())) {
-					employeePassword = rs.getString("employeePassword");
-					if (employeePassword.equals(employeeIns.getEmployeePassword())) {
-						result = true;
-						break;
-					}
-				}
-			}
-		} catch (SQLException e) {
-			System.out.println(e.getMessage());
-		}
+		result = getResultSet(employeeId, employeePassword);
+
 		return result;
 	}
 
