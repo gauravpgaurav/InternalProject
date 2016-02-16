@@ -12,6 +12,17 @@ public class Orders {
 	private Hashtable<Integer, Integer> collectionOfDishes;
 	private String comments;
 
+	
+	public Orders(int orderId, int waiterId, int numberOfCustomers, int tableNumber, boolean isReady, String comments) {
+		super();
+		this.orderId = orderId;
+		this.waiterId = waiterId;
+		this.numberOfCustomers = numberOfCustomers;
+		this.tableNumber = tableNumber;
+		this.isReady = isReady;
+		this.comments = comments;
+	}
+
 	public Orders(int orderId, int waiterId, int numberOfCustomers, int tableNumber, boolean isReady,
 			Hashtable<Integer, Integer> collectionOfDishes, String comments) {
 		super();

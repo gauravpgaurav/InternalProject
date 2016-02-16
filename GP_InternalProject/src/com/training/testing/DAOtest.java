@@ -2,6 +2,8 @@ package com.training.testing;
 
 import static org.junit.Assert.*;
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import org.junit.*;
 
 import com.training.daos.DishDAO;
@@ -9,6 +11,7 @@ import com.training.daos.EmployeeDAO;
 import com.training.daos.OrdersDAO;
 import com.training.entity.Dish;
 import com.training.entity.Employee;
+import com.training.entity.Orders;
 import com.training.utils.ValidateEmployee;
 
 public class DAOtest {
@@ -71,6 +74,7 @@ public class DAOtest {
 		dishDAO.update(203, 50);
 	}
 
+	@Ignore
 	@Test
 	public void refreshDB() {
 		OrdersDAO orderDAO = new OrdersDAO("orders", "orderitems");
@@ -96,5 +100,17 @@ public class DAOtest {
 		EmployeeDAO empDAO = new EmployeeDAO("Employee");
 		int actual = empDAO.update(102, "break");
 		assertEquals(1, actual);
+	}
+
+	@Test
+	public void testFindOrders() {
+
+		OrdersDAO ordDAO = new OrdersDAO("Orders", "Orderitems");
+		ArrayList<Orders> orderList = (ArrayList<Orders>) ordDAO.findAll();
+		for (Iterator<Orders> iterator = orderList.iterator(); iterator.hasNext();) {
+			Orders orders = (Orders) iterator.next();
+			System.out.println(orders);
+		}
+
 	}
 }
