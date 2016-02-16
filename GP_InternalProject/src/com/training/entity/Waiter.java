@@ -23,6 +23,7 @@ public class Waiter extends Employee {
 
 		OrderItem orderIns = new OrderItem(getEmployeeId(), numberOfCustomers, tableNumber, tempCollectionOfDishes);
 		tableOrderMap.put(tableNumber, orderIns);
+		tempCollectionOfDishes = new Hashtable<>();
 	}
 
 	public Hashtable<Integer, OrderItem> getTableOrderMap() {

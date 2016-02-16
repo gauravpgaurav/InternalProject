@@ -43,6 +43,7 @@ public class OrderingTest {
 		Waiter w1 = new Waiter(303, "Walter", "Waiter", "patience");
 
 		w1.buildOrder(dishIns1, 4);
+		w1.buildOrder(dishIns2, 10);
 		w1.enterOrderDetails(3, 1);
 
 		w1.buildOrder(dishIns3, 5);
