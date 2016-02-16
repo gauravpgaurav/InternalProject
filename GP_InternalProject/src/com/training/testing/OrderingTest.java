@@ -36,22 +36,26 @@ public class OrderingTest {
 	@Test
 	public void testWaiter() {
 
-		Dish dishIns1 = new Dish(201, "Roti", true, 45, 10);
-		Dish dishIns2 = new Dish(202, "Naan", true, 20, 25);
-		Dish dishIns3 = new Dish(203, "Chicken", false, 15, 350);
+		// Dish dishIns1 = new Dish(201, "Roti", true, 45, 10);
+		// Dish dishIns2 = new Dish(202, "Naan", true, 20, 25);
+		// Dish dishIns3 = new Dish(203, "Chicken", false, 15, 350);
 
 		Waiter w1 = new Waiter(303, "Walter", "Waiter", "patience");
 
-		w1.addToOrder(dishIns1, 4);
-		w1.addToOrder(dishIns2, 10);
-		w1.enterOrderDetails(901, 3, 1);
+		if (w1.addToOrder(201, 1) && (w1.addToOrder(202, 2)))
+			w1.enterOrderDetails(901, 3, 1);
 
-		w1.addToOrder(dishIns3, 5);
-		w1.enterOrderDetails(902, 2, 2);
+		else
+			System.out.println("Not Available");
+
+		if (w1.addToOrder(203, 3))
+			w1.enterOrderDetails(902, 2, 3);
+		else
+			System.out.println("Not Available");
 
 		Hashtable<Integer, OrderItem> waiterData = w1.getTableOrderMap();
 		Iterator<Entry<Integer, OrderItem>> entries = waiterData.entrySet().iterator();
-		for (entries.hasNext();;) {
+		while (entries.hasNext()) {
 			Entry<Integer, OrderItem> entry = entries.next();
 			System.out.println(entry.getKey() + " : " + entry.getValue());
 		}

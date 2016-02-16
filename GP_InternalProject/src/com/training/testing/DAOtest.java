@@ -51,6 +51,7 @@ public class DAOtest {
 		assertEquals(expected, actual);
 	}
 
+	@Ignore
 	@Test
 	public void testFindDish() {
 
@@ -60,6 +61,17 @@ public class DAOtest {
 		assertEquals(expected, actual);
 	}
 
+	@Test
+	public void testUpdateDishAvailability() {
+
+	//	Dish expected = new Dish(203, "Chicken", false, 15, 350);
+		DishDAO dishDAO = new DishDAO("Dish");
+		int actual1 = dishDAO.update(201, 50);
+		int actual2 = dishDAO.update(202, 50);
+		int actual3s = dishDAO.update(203, 50);
+		//assertEquals(expected, actual);
+	}
+	
 	@Ignore
 	@Test
 	public void testFindAll() {

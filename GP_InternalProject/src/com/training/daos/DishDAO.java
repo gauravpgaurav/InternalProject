@@ -83,8 +83,20 @@ public class DishDAO implements DAO<Dish> {
 	}
 
 	public int update(int key, int newAvailability) {
-		// TODO Auto-generated method stub
-		return 0;
+		Statement s;
+		int rowUpdated = 0;
+
+		try {
+			s = (Statement) con.createStatement();
+			rowUpdated = s.executeUpdate("update " + tableName + " set " + "availability='" + newAvailability
+					+ "' where dishId='" + key + "'");
+
+		} catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+		}
+
+		return rowUpdated;
 	}
 
 	@Override
