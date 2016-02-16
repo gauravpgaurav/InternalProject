@@ -145,6 +145,26 @@ public class OrdersDAO implements DAO<Orders> {
 		return orderList;
 	}
 
+	public List<Integer> findAllPendingOrders() {
+		String sql = "select orderId from " + tableName1 + " where isready = 'false'";
+		ArrayList<Integer> orderIdList = new ArrayList<Integer>();
+		Statement stmt = null;
+		try {
+			stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+
+				orderIdList.add(rs.getInt("orderId"));
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return orderIdList;
+	}
+
 	@Override
 	public int update(int key, String newStatus) {
 		Statement s;

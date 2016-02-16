@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import com.training.daos.EmployeeDAO;
 import com.training.entity.Chef;
 import com.training.entity.Dish;
 import com.training.entity.Orders;
@@ -33,12 +34,14 @@ public class OrderingTest {
 		assertNotNull(dishIns);
 	}
 
-	
+	@Ignore
 	@Test
 	public void testWaiter() {
 
 		Waiter waiter1 = new Waiter(303, "Walter", "Waiter", "patience");
-
+		EmployeeDAO empDAO = new EmployeeDAO("Employee");
+		empDAO.add(waiter1);
+		
 		if (waiter1.isDishAvailable(201, 1) && (waiter1.isDishAvailable(202, 2)))
 			waiter1.confirmOrder(901, 3, 1, "Less Spicy");
 
@@ -58,13 +61,14 @@ public class OrderingTest {
 			System.out.println("Table " + words.getKey() + "\t:=\t" + words.getValue());
 		}
 	}
+
 	
-	@Ignore
 	@Test
-	public void testChief(){
+	public void testChief() {
 		Chef chef1 = new Chef(301, "Hector", "Chef", "salt");
+		EmployeeDAO empDAO = new EmployeeDAO("Employee");
+		empDAO.add(chef1);
 		chef1.updateStatusToReady(902);
 	}
 
-	
 }

@@ -6,7 +6,7 @@ public class Chef extends Employee {
 
 	public Chef(int employeeId, String employeeName, String employeeRole, String employeePassword) {
 		super(employeeId, employeeName, employeeRole, employeePassword);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public void updateStatusToReady(int orderId) {

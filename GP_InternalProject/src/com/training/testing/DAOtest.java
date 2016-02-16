@@ -11,7 +11,6 @@ import com.training.daos.EmployeeDAO;
 import com.training.daos.OrdersDAO;
 import com.training.entity.Dish;
 import com.training.entity.Employee;
-import com.training.entity.Orders;
 import com.training.utils.ValidateEmployee;
 
 public class DAOtest {
@@ -24,6 +23,27 @@ public class DAOtest {
 	public void tearDown() throws Exception {
 	}
 
+	
+	@Test
+	public void testUpdateDishAvailability() {
+
+		DishDAO dishDAO = new DishDAO("Dish");
+		dishDAO.update(201, 50);
+		dishDAO.update(202, 50);
+		dishDAO.update(203, 50);
+	}
+
+	
+	@Test
+	public void refreshDB() {
+		OrdersDAO orderDAO = new OrdersDAO("orders", "orderitems");
+		orderDAO.deleteAll();
+		EmployeeDAO empDAO = new EmployeeDAO("Employee");
+		empDAO.deleteAll();
+	}
+	
+	
+	
 	@Ignore
 	@Test
 	public void testAdd() {
@@ -65,21 +85,6 @@ public class DAOtest {
 		assertEquals(expected, actual);
 	}
 
-	@Test
-	public void testUpdateDishAvailability() {
-
-		DishDAO dishDAO = new DishDAO("Dish");
-		dishDAO.update(201, 50);
-		dishDAO.update(202, 50);
-		dishDAO.update(203, 50);
-	}
-
-	@Ignore
-	@Test
-	public void refreshDB() {
-		OrdersDAO orderDAO = new OrdersDAO("orders", "orderitems");
-		orderDAO.deleteAll();
-	}
 
 	@Ignore
 	@Test
@@ -102,14 +107,17 @@ public class DAOtest {
 		assertEquals(1, actual);
 	}
 
+	@Ignore
 	@Test
 	public void testFindOrders() {
 
 		OrdersDAO ordDAO = new OrdersDAO("Orders", "Orderitems");
-		ArrayList<Orders> orderList = (ArrayList<Orders>) ordDAO.findAll();
-		for (Iterator<Orders> iterator = orderList.iterator(); iterator.hasNext();) {
-			Orders orders = (Orders) iterator.next();
-			System.out.println(orders);
+		//ArrayList<Orders> orderList = (ArrayList<Orders>) ordDAO.findAll();
+		ArrayList<Integer> orderIdList = (ArrayList<Integer>) ordDAO.findAllPendingOrders();
+		System.out.println("Pending Order Numbers : ");
+		for (Iterator<Integer> iterator = orderIdList.iterator(); iterator.hasNext();) {
+			Integer orderID = (Integer) iterator.next();
+			System.out.println(orderID);
 		}
 
 	}
