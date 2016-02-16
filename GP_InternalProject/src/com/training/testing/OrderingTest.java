@@ -10,6 +10,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import com.training.daos.EmployeeDAO;
+import com.training.daos.OrdersDAO;
 import com.training.entity.Chef;
 import com.training.entity.Dish;
 import com.training.entity.Orders;
@@ -34,14 +35,13 @@ public class OrderingTest {
 		assertNotNull(dishIns);
 	}
 
-	@Ignore
 	@Test
 	public void testWaiter() {
 
 		Waiter waiter1 = new Waiter(303, "Walter", "Waiter", "patience");
 		EmployeeDAO empDAO = new EmployeeDAO("Employee");
 		empDAO.add(waiter1);
-		
+
 		if (waiter1.isDishAvailable(201, 1) && (waiter1.isDishAvailable(202, 2)))
 			waiter1.confirmOrder(901, 3, 1, "Less Spicy");
 
@@ -60,9 +60,14 @@ public class OrderingTest {
 		for (Map.Entry<Integer, Orders> words : list) {
 			System.out.println("Table " + words.getKey() + "\t:=\t" + words.getValue());
 		}
+		System.out.println("\nOrder 901");
+		waiter1.displayBill(901);
+		System.out.println("\nOrder 902");
+		waiter1.displayBill(902);
+
 	}
 
-	
+	@Ignore
 	@Test
 	public void testChief() {
 		Chef chef1 = new Chef(301, "Hector", "Chef", "salt");
@@ -71,4 +76,11 @@ public class OrderingTest {
 		chef1.updateStatusToReady(902);
 	}
 
+	@Ignore
+	@Test
+	public void testBill() {
+		OrdersDAO orderDAO = new OrdersDAO("orders", "orderitems");
+		double amt = orderDAO.getBillAmount(901);
+		System.out.println(amt);
+	}
 }

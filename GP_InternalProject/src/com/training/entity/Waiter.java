@@ -17,6 +17,22 @@ public class Waiter extends Employee {
 		tempCollectionOfDishes = new Hashtable<>();
 	}
 
+	public Hashtable<Integer, Orders> getTableOrderMap() {
+		return tableOrderMap;
+	}
+
+	public void setTableOrderMap(Hashtable<Integer, Orders> tableOrderMap) {
+		this.tableOrderMap = tableOrderMap;
+	}
+
+	public Hashtable<Integer, Integer> getTempCollectionOfDishes() {
+		return tempCollectionOfDishes;
+	}
+
+	public void setTempCollectionOfDishes(Hashtable<Integer, Integer> tempCollectionOfDishes) {
+		this.tempCollectionOfDishes = tempCollectionOfDishes;
+	}
+
 	public boolean isDishAvailable(int dishId, int quantity) {
 
 		DishDAO dishDAO = new DishDAO("dish");
@@ -44,33 +60,22 @@ public class Waiter extends Employee {
 
 	}
 
-	public void confirmOrder(int orderId, int numberOfCustomers, int tableNumber,String comments) {
+	public void confirmOrder(int orderId, int numberOfCustomers, int tableNumber, String comments) {
 
 		updateCount();
 		Orders orderIns = new Orders(orderId, getEmployeeId(), numberOfCustomers, tableNumber, false,
-				tempCollectionOfDishes,comments);
-		OrdersDAO ordersDAO = new OrdersDAO("orders","orderitems");
-		
+				tempCollectionOfDishes, comments);
+		OrdersDAO ordersDAO = new OrdersDAO("orders", "orderitems");
+
 		ordersDAO.add(orderIns);
-		
+
 		tableOrderMap.put(tableNumber, orderIns);
 		tempCollectionOfDishes = new Hashtable<>();
+
 	}
 
-	public Hashtable<Integer, Orders> getTableOrderMap() {
-		return tableOrderMap;
+	public void displayBill(int orderId) {
+		OrdersDAO ordersDAO = new OrdersDAO("orders", "orderitems");
+		System.out.println("\nBill Amount : Rs." + ordersDAO.getBillAmount(orderId));
 	}
-
-	public void setTableOrderMap(Hashtable<Integer, Orders> tableOrderMap) {
-		this.tableOrderMap = tableOrderMap;
-	}
-
-	public Hashtable<Integer, Integer> getTempCollectionOfDishes() {
-		return tempCollectionOfDishes;
-	}
-
-	public void setTempCollectionOfDishes(Hashtable<Integer, Integer> tempCollectionOfDishes) {
-		this.tempCollectionOfDishes = tempCollectionOfDishes;
-	}
-
 }

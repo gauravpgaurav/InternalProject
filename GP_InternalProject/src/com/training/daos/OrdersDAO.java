@@ -183,6 +183,40 @@ public class OrdersDAO implements DAO<Orders> {
 		return rowUpdated;
 	}
 
+	public double getBillAmount(int key) {
+		double sum = 0;
+		double combinedCost = 0;
+		String sql = "select * from orderItems where orderId = " + key;
+		Statement stmt = null;
+		Statement stmt2 = null;
+		try {
+			stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			combinedCost = 0;
+			while (rs.next()) {
+
+				int itemID = rs.getInt("itemId");
+				int quantity = rs.getInt("quantity");
+				String sql2 = "select * from dish where dishId = " + itemID;
+				stmt2 = con.createStatement();
+				ResultSet rs2 = stmt2.executeQuery(sql2);
+
+				while (rs2.next()) {
+					double cost = rs2.getInt("cost");
+					combinedCost = cost * quantity;
+					// System.out.println(cost + " X " + quantity + " = " +
+					// combinedCost);
+					sum += combinedCost;
+				}
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		return sum;
+	}
+
 	@Override
 	public int delete(int key) {
 		String sql1 = "delete from " + tableName1 + " where orderId = " + key;
