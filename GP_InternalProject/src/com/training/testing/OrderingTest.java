@@ -42,19 +42,18 @@ public class OrderingTest {
 
 		Waiter w1 = new Waiter(303, "Walter", "Waiter", "patience");
 
-		w1.buildOrder(dishIns1, 4);
-		w1.buildOrder(dishIns2, 10);
-		w1.enterOrderDetails(3, 1);
+		w1.addToOrder(dishIns1, 4);
+		w1.addToOrder(dishIns2, 10);
+		w1.enterOrderDetails(901, 3, 1);
 
-		w1.buildOrder(dishIns3, 5);
-		w1.enterOrderDetails(2, 2);
+		w1.addToOrder(dishIns3, 5);
+		w1.enterOrderDetails(902, 2, 2);
 
 		Hashtable<Integer, OrderItem> waiterData = w1.getTableOrderMap();
 		Iterator<Entry<Integer, OrderItem>> entries = waiterData.entrySet().iterator();
-		for(entries.hasNext();;)
-		{
-			 Entry<Integer, OrderItem> entry = entries.next();
-			System.out.println(entry.getKey()+" : "+entry.getValue());
+		for (entries.hasNext();;) {
+			Entry<Integer, OrderItem> entry = entries.next();
+			System.out.println(entry.getKey() + " : " + entry.getValue());
 		}
 
 	}

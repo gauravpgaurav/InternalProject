@@ -4,18 +4,38 @@ import java.util.*;
 
 public class OrderItem {
 
+	private int orderId;
 	private int waiterId;
 	private int numberOfCustomers;
 	private int tableNumber;
+	private boolean isReady;
 	private Hashtable<Integer, Integer> collectionOfDishes;
 
-	public OrderItem(int waiterId, int numberOfCustomers, int tableNumber,
+	public OrderItem(int orderId, int waiterId, int numberOfCustomers, int tableNumber, boolean isReady,
 			Hashtable<Integer, Integer> collectionOfDishes) {
 		super();
+		this.orderId = orderId;
+		this.isReady = isReady;
 		this.waiterId = waiterId;
 		this.numberOfCustomers = numberOfCustomers;
 		this.tableNumber = tableNumber;
 		this.collectionOfDishes = collectionOfDishes;
+	}
+
+	public int getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(int orderId) {
+		this.orderId = orderId;
+	}
+
+	public boolean isReady() {
+		return isReady;
+	}
+
+	public void setReady(boolean isReady) {
+		this.isReady = isReady;
 	}
 
 	public int getWaiterId() {
@@ -52,8 +72,9 @@ public class OrderItem {
 
 	@Override
 	public String toString() {
-		return "OrderItem [waiterId=" + waiterId + ", numberOfCustomers=" + numberOfCustomers + ", tableNumber="
-				+ tableNumber + ", collectionOfDishes=" + collectionOfDishes + "]";
+		return "OrderItem [orderId=" + orderId + ", waiterId=" + waiterId + ", numberOfCustomers=" + numberOfCustomers
+				+ ", tableNumber=" + tableNumber + ", isReady=" + isReady + ", collectionOfDishes=" + collectionOfDishes
+				+ "]";
 	}
 
 }

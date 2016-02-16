@@ -14,14 +14,15 @@ public class Waiter extends Employee {
 		tempCollectionOfDishes = new Hashtable<>();
 	}
 
-	public void buildOrder(Dish dishIns, int quantity) {
+	public void addToOrder(Dish dishIns, int quantity) {
 		tempCollectionOfDishes.put(dishIns.getDishId(), quantity);
 
 	}
 
-	public void enterOrderDetails(int numberOfCustomers, int tableNumber) {
+	public void enterOrderDetails(int orderId, int numberOfCustomers, int tableNumber) {
 
-		OrderItem orderIns = new OrderItem(getEmployeeId(), numberOfCustomers, tableNumber, tempCollectionOfDishes);
+		OrderItem orderIns = new OrderItem(orderId, getEmployeeId(), numberOfCustomers, tableNumber, false,
+				tempCollectionOfDishes);
 		tableOrderMap.put(tableNumber, orderIns);
 		tempCollectionOfDishes = new Hashtable<>();
 	}

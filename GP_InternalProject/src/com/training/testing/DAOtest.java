@@ -4,7 +4,9 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import org.junit.*;
 
+import com.training.daos.DishDAO;
 import com.training.daos.EmployeeDAO;
+import com.training.entity.Dish;
 import com.training.entity.Employee;
 import com.training.utils.ValidateEmployee;
 
@@ -28,6 +30,7 @@ public class DAOtest {
 		assertEquals(1, actual, 0);
 	}
 
+	@Ignore
 	@Test
 	public void testValidity() {
 
@@ -37,6 +40,7 @@ public class DAOtest {
 		assertEquals(true, actual);
 	}
 
+	@Ignore
 	@Test
 	public void testFind() {
 
@@ -44,6 +48,15 @@ public class DAOtest {
 		// ValidateUser valIns = new ValidateUser();
 		EmployeeDAO empDAO = new EmployeeDAO("Employee");
 		Employee actual = empDAO.find(101);
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testFindDish() {
+
+		Dish expected = new Dish(203, "Chicken", false, 15, 350);
+		DishDAO dishDAO = new DishDAO("Dish");
+		Dish actual = dishDAO.find(203);
 		assertEquals(expected, actual);
 	}
 
@@ -59,6 +72,7 @@ public class DAOtest {
 		assertNotNull(empList);
 	}
 
+	@Ignore
 	@Test
 	public void testUpdatePassword() {
 
