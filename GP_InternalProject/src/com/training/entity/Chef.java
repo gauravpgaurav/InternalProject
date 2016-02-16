@@ -10,7 +10,7 @@ public class Chef extends Employee {
 	}
 
 	public void updateStatusToReady(int orderId) {
-		OrdersDAO ordersDAO = new OrdersDAO("orders");
+		OrdersDAO ordersDAO = new OrdersDAO("orders","orderitems");
 		ordersDAO.update(orderId, Boolean.toString(true));
 	}
 }

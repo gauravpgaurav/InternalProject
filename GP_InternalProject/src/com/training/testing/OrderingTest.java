@@ -33,19 +33,19 @@ public class OrderingTest {
 		assertNotNull(dishIns);
 	}
 
-	@Ignore
+	
 	@Test
 	public void testWaiter() {
 
 		Waiter waiter1 = new Waiter(303, "Walter", "Waiter", "patience");
 
-		if (waiter1.isAvailable(201, 1) && (waiter1.isAvailable(202, 2)))
+		if (waiter1.isDishAvailable(201, 1) && (waiter1.isDishAvailable(202, 2)))
 			waiter1.confirmOrder(901, 3, 1, "Less Spicy");
 
 		else
 			System.out.println("Not Available");
 
-		if (waiter1.isAvailable(203, 3))
+		if (waiter1.isDishAvailable(203, 3))
 			waiter1.confirmOrder(902, 2, 3, null);
 		else
 			System.out.println("Not Available");
@@ -59,7 +59,7 @@ public class OrderingTest {
 		}
 	}
 	
-	
+	@Ignore
 	@Test
 	public void testChief(){
 		Chef chef1 = new Chef(301, "Hector", "Chef", "salt");

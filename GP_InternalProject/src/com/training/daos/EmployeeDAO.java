@@ -149,5 +149,23 @@ public class EmployeeDAO implements DAO<Employee> {
 		}
 		return rowDeleted;
 	}
+	
+	@Override
+	public int deleteAll() {
+		String sql = "delete from " + tableName;
+		int rowDeleted = 0;
+
+		try {
+
+			Statement stmt = con.createStatement();
+			rowDeleted = stmt.executeUpdate(sql);
+		}
+
+		catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+		}
+		return rowDeleted;
+	}
 
 }

@@ -1,6 +1,7 @@
 package com.training.daos;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.training.entity.Dish;
@@ -89,8 +90,24 @@ public class DishDAO implements DAO<Dish> {
 
 	@Override
 	public List<Dish> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select * from " + tableName;
+		ArrayList<Dish> dishList = new ArrayList<Dish>();
+		Statement stmt = null;
+		try {
+			stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+
+				dishList.add(getDish(rs));
+
+			}
+
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+		return dishList;
 	}
 
 	@Override
@@ -118,8 +135,38 @@ public class DishDAO implements DAO<Dish> {
 
 	@Override
 	public int delete(int key) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "delete from " + tableName + " where dishId = " + key;
+		int rowDeleted = 0;
+
+		try {
+
+			Statement stmt = con.createStatement();
+			rowDeleted = stmt.executeUpdate(sql);
+		}
+
+		catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+		}
+		return rowDeleted;
+	}
+
+	@Override
+	public int deleteAll() {
+		String sql = "delete from " + tableName;
+		int rowDeleted = 0;
+
+		try {
+
+			Statement stmt = con.createStatement();
+			rowDeleted = stmt.executeUpdate(sql);
+		}
+
+		catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+		}
+		return rowDeleted;
 	}
 
 }

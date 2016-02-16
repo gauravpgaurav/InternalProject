@@ -6,7 +6,6 @@ import org.junit.*;
 
 import com.training.daos.DishDAO;
 import com.training.daos.EmployeeDAO;
-import com.training.daos.OrderItemDAO;
 import com.training.daos.OrdersDAO;
 import com.training.entity.Dish;
 import com.training.entity.Employee;
@@ -74,13 +73,8 @@ public class DAOtest {
 
 	@Test
 	public void refreshDB() {
-		OrdersDAO orderDAO = new OrdersDAO("orders");
-		OrderItemDAO orderItemDAO = new OrderItemDAO("orderitems");
-
-		orderItemDAO.delete(901);
-		orderItemDAO.delete(902);
-		orderDAO.delete(901);
-		orderDAO.delete(902);
+		OrdersDAO orderDAO = new OrdersDAO("orders", "orderitems");
+		orderDAO.deleteAll();
 	}
 
 	@Ignore

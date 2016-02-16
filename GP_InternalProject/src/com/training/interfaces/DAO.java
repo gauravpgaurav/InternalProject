@@ -10,8 +10,10 @@ public interface DAO<T> {
 
 	public List<T> findAll();
 
-	public int update(int key, String newPassword);
+	public int update(int key, String newString);
 
 	public int delete(int key);
+	
+	public int deleteAll();
 
 }

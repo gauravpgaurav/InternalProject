@@ -3,7 +3,6 @@ package com.training.entity;
 import java.util.*;
 
 import com.training.daos.DishDAO;
-import com.training.daos.OrderItemDAO;
 import com.training.daos.OrdersDAO;
 
 public class Waiter extends Employee {
@@ -18,7 +17,7 @@ public class Waiter extends Employee {
 		tempCollectionOfDishes = new Hashtable<>();
 	}
 
-	public boolean isAvailable(int dishId, int quantity) {
+	public boolean isDishAvailable(int dishId, int quantity) {
 
 		DishDAO dishDAO = new DishDAO("dish");
 		Dish dishIns = dishDAO.find(dishId);
@@ -50,11 +49,9 @@ public class Waiter extends Employee {
 		updateCount();
 		Orders orderIns = new Orders(orderId, getEmployeeId(), numberOfCustomers, tableNumber, false,
 				tempCollectionOfDishes,comments);
-		OrdersDAO ordersDAO = new OrdersDAO("orders");
-		OrderItemDAO orderitemDAO = new OrderItemDAO("orderitems");
+		OrdersDAO ordersDAO = new OrdersDAO("orders","orderitems");
 		
 		ordersDAO.add(orderIns);
-		orderitemDAO.add(orderIns);
 		
 		tableOrderMap.put(tableNumber, orderIns);
 		tempCollectionOfDishes = new Hashtable<>();
