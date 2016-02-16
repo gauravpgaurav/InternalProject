@@ -6,6 +6,8 @@ import org.junit.*;
 
 import com.training.daos.DishDAO;
 import com.training.daos.EmployeeDAO;
+import com.training.daos.OrderItemDAO;
+import com.training.daos.OrdersDAO;
 import com.training.entity.Dish;
 import com.training.entity.Employee;
 import com.training.utils.ValidateEmployee;
@@ -66,10 +68,25 @@ public class DAOtest {
 
 	//	Dish expected = new Dish(203, "Chicken", false, 15, 350);
 		DishDAO dishDAO = new DishDAO("Dish");
-		int actual1 = dishDAO.update(201, 50);
-		int actual2 = dishDAO.update(202, 50);
-		int actual3s = dishDAO.update(203, 50);
+		dishDAO.update(201, 50);
+		dishDAO.update(202, 50);
+		dishDAO.update(203, 50);
+//		EmployeeDAO empDAO = new EmployeeDAO("Employee");
+//		empDAO.delete(303);
+//		Waiter w1 = new Waiter(303, "Walter", "Waiter", "patience");
+//		empDAO.add(w1);
 		//assertEquals(expected, actual);
+	}
+	
+	@Test
+	public void refreshDB() {
+		OrdersDAO orderDAO = new OrdersDAO("orders");
+		OrderItemDAO orderItemDAO = new OrderItemDAO("orderitems");
+		
+		orderItemDAO.delete(901);
+		orderItemDAO.delete(902);
+		orderDAO.delete(901);
+		orderDAO.delete(902);
 	}
 	
 	@Ignore

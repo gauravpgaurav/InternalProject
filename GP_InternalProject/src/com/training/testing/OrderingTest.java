@@ -3,7 +3,6 @@ package com.training.testing;
 import static org.junit.Assert.*;
 
 import java.util.*;
-import java.util.Map.Entry;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,7 +10,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 
 import com.training.entity.Dish;
-import com.training.entity.OrderItem;
+import com.training.entity.Orders;
 import com.training.entity.Waiter;
 
 public class OrderingTest {
@@ -36,30 +35,27 @@ public class OrderingTest {
 	@Test
 	public void testWaiter() {
 
-		// Dish dishIns1 = new Dish(201, "Roti", true, 45, 10);
-		// Dish dishIns2 = new Dish(202, "Naan", true, 20, 25);
-		// Dish dishIns3 = new Dish(203, "Chicken", false, 15, 350);
-
 		Waiter w1 = new Waiter(303, "Walter", "Waiter", "patience");
 
-		if (w1.addToOrder(201, 1) && (w1.addToOrder(202, 2)))
-			w1.enterOrderDetails(901, 3, 1);
+		if (w1.isAvailable(201, 1) && (w1.isAvailable(202, 2)))
+			w1.confirmOrder(901, 3, 1, "Less Spicy");
 
 		else
 			System.out.println("Not Available");
 
-		if (w1.addToOrder(203, 3))
-			w1.enterOrderDetails(902, 2, 3);
+		if (w1.isAvailable(203, 3))
+			w1.confirmOrder(902, 2, 3, null);
 		else
 			System.out.println("Not Available");
 
-		Hashtable<Integer, OrderItem> waiterData = w1.getTableOrderMap();
-		Iterator<Entry<Integer, OrderItem>> entries = waiterData.entrySet().iterator();
-		while (entries.hasNext()) {
-			Entry<Integer, OrderItem> entry = entries.next();
-			System.out.println(entry.getKey() + " : " + entry.getValue());
+		Hashtable<Integer, Orders> waiterData = w1.getTableOrderMap();
+
+		Set<Map.Entry<Integer, Orders>> list = waiterData.entrySet();
+		System.out.println("All Orders");
+		for (Map.Entry<Integer, Orders> words : list) {
+			System.out.println("Table " + words.getKey() + "\t:=\t" + words.getValue());
 		}
-
 	}
 
+	
 }

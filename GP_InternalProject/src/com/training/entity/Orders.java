@@ -2,7 +2,7 @@ package com.training.entity;
 
 import java.util.*;
 
-public class OrderItem {
+public class Orders {
 
 	private int orderId;
 	private int waiterId;
@@ -10,9 +10,10 @@ public class OrderItem {
 	private int tableNumber;
 	private boolean isReady;
 	private Hashtable<Integer, Integer> collectionOfDishes;
+	private String comments;
 
-	public OrderItem(int orderId, int waiterId, int numberOfCustomers, int tableNumber, boolean isReady,
-			Hashtable<Integer, Integer> collectionOfDishes) {
+	public Orders(int orderId, int waiterId, int numberOfCustomers, int tableNumber, boolean isReady,
+			Hashtable<Integer, Integer> collectionOfDishes, String comments) {
 		super();
 		this.orderId = orderId;
 		this.isReady = isReady;
@@ -20,6 +21,8 @@ public class OrderItem {
 		this.numberOfCustomers = numberOfCustomers;
 		this.tableNumber = tableNumber;
 		this.collectionOfDishes = collectionOfDishes;
+		this.comments = comments;
+
 	}
 
 	public int getOrderId() {
@@ -70,11 +73,19 @@ public class OrderItem {
 		this.collectionOfDishes = collectionOfDishes;
 	}
 
+	public String getComments() {
+		return comments;
+	}
+
+	public void setComments(String comments) {
+		this.comments = comments;
+	}
+
 	@Override
 	public String toString() {
 		return "OrderItem [orderId=" + orderId + ", waiterId=" + waiterId + ", numberOfCustomers=" + numberOfCustomers
 				+ ", tableNumber=" + tableNumber + ", isReady=" + isReady + ", collectionOfDishes=" + collectionOfDishes
-				+ "]";
+				+ ", comments=" + comments + "]";
 	}
 
 }

@@ -45,8 +45,25 @@ public class DishDAO implements DAO<Dish> {
 
 	@Override
 	public int add(Dish t) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "insert into " + tableName + " values(?,?,?,?,?)";
+		int rowAdded = 0;
+
+		try {
+
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, t.getDishId());
+			pstmt.setString(2, t.getDishName());
+			pstmt.setString(3, Boolean.toString(t.isVeg()));
+			pstmt.setInt(4, t.getAvailability());
+			pstmt.setDouble(5, t.getCost());
+			rowAdded = pstmt.executeUpdate();
+		}
+
+		catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+		}
+		return rowAdded;
 	}
 
 	@Override
