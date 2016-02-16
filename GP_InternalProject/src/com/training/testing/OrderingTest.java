@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import com.training.entity.Chef;
 import com.training.entity.Dish;
 import com.training.entity.Orders;
 import com.training.entity.Waiter;
@@ -32,29 +33,37 @@ public class OrderingTest {
 		assertNotNull(dishIns);
 	}
 
+	@Ignore
 	@Test
 	public void testWaiter() {
 
-		Waiter w1 = new Waiter(303, "Walter", "Waiter", "patience");
+		Waiter waiter1 = new Waiter(303, "Walter", "Waiter", "patience");
 
-		if (w1.isAvailable(201, 1) && (w1.isAvailable(202, 2)))
-			w1.confirmOrder(901, 3, 1, "Less Spicy");
+		if (waiter1.isAvailable(201, 1) && (waiter1.isAvailable(202, 2)))
+			waiter1.confirmOrder(901, 3, 1, "Less Spicy");
 
 		else
 			System.out.println("Not Available");
 
-		if (w1.isAvailable(203, 3))
-			w1.confirmOrder(902, 2, 3, null);
+		if (waiter1.isAvailable(203, 3))
+			waiter1.confirmOrder(902, 2, 3, null);
 		else
 			System.out.println("Not Available");
 
-		Hashtable<Integer, Orders> waiterData = w1.getTableOrderMap();
+		Hashtable<Integer, Orders> waiterData = waiter1.getTableOrderMap();
 
 		Set<Map.Entry<Integer, Orders>> list = waiterData.entrySet();
 		System.out.println("All Orders");
 		for (Map.Entry<Integer, Orders> words : list) {
 			System.out.println("Table " + words.getKey() + "\t:=\t" + words.getValue());
 		}
+	}
+	
+	
+	@Test
+	public void testChief(){
+		Chef chef1 = new Chef(301, "Hector", "Chef", "salt");
+		chef1.updateStatusToReady(902);
 	}
 
 	

@@ -66,29 +66,23 @@ public class DAOtest {
 	@Test
 	public void testUpdateDishAvailability() {
 
-	//	Dish expected = new Dish(203, "Chicken", false, 15, 350);
 		DishDAO dishDAO = new DishDAO("Dish");
 		dishDAO.update(201, 50);
 		dishDAO.update(202, 50);
 		dishDAO.update(203, 50);
-//		EmployeeDAO empDAO = new EmployeeDAO("Employee");
-//		empDAO.delete(303);
-//		Waiter w1 = new Waiter(303, "Walter", "Waiter", "patience");
-//		empDAO.add(w1);
-		//assertEquals(expected, actual);
 	}
-	
+
 	@Test
 	public void refreshDB() {
 		OrdersDAO orderDAO = new OrdersDAO("orders");
 		OrderItemDAO orderItemDAO = new OrderItemDAO("orderitems");
-		
+
 		orderItemDAO.delete(901);
 		orderItemDAO.delete(902);
 		orderDAO.delete(901);
 		orderDAO.delete(902);
 	}
-	
+
 	@Ignore
 	@Test
 	public void testFindAll() {

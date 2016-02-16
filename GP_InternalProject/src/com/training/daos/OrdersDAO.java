@@ -69,9 +69,21 @@ public class OrdersDAO implements DAO<Orders> {
 	}
 
 	@Override
-	public int update(int key, String newPassword) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int update(int key, String newStatus) {
+		Statement s;
+		int rowUpdated = 0;
+
+		try {
+			s = (Statement) con.createStatement();
+			rowUpdated = s.executeUpdate("update " + tableName + " set " + "isReady='" + newStatus
+					+ "' where orderId='" + key + "'");
+
+		} catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+		}
+
+		return rowUpdated;
 	}
 
 	@Override
