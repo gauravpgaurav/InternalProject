@@ -9,4 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>Validate_Servlet</display-name>
+    <servlet-name>Validate_Servlet</servlet-name>
+    <servlet-class>com.training.servlet.Validate_Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Validate_Servlet</servlet-name>
+    <url-pattern>/Validate_Servlet</url-pattern>
+  </servlet-mapping>
 </web-app>

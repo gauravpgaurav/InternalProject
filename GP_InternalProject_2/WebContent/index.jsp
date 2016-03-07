@@ -35,12 +35,13 @@ table, tr, td {
 }
 
 .ico {
-	height: 20px;
+	height: 25px;
 	float: right;
-	width: 20px;
+	width: 25px;
 	float: right;
 }
 </style>
+
 </head>
 <body>
 	<header>
@@ -54,33 +55,37 @@ table, tr, td {
 			alt="fr" src="images/fr.png" class="ico"></a>
 	</div>
 
-	<form>
+	<form action="Validate_Servlet" method="post">
 		<table>
 			<fmt:setBundle basename="LanguageData" var="msg" scope="page" />
 
 			<tr>
 				<td><label><fmt:message key="table.tr.role"
 							bundle="${msg}" />:</label></td>
-				<td><select>
+				<td><select name="role">
+						<option selected="selected">Administrator</option>
+						<option>Manager</option>
+						<option>Lab Technician</option>
 						<option>Operator</option>
 				</select></td>
 			</tr>
 			<tr>
 				<td><label><fmt:message key="table.tr.labCode"
 							bundle="${msg}" />:</label></td>
-				<td><input type="text"
+				<td><datalist id="json-datalist"></datalist> <input type="text"
+					name="labCode" id="ajax" list="json-datalist"
 					placeholder=<fmt:message key="table.tr.placeholder.labCode" bundle="${msg}" />></td>
 			</tr>
 			<tr>
 				<td><label><fmt:message key="table.tr.userName"
 							bundle="${msg}" />:</label></td>
-				<td><input type="text"
+				<td><input type="text" name="userName"
 					placeholder=<fmt:message key="table.tr.placeholder.userName" bundle="${msg}" />></td>
 			</tr>
 			<tr>
 				<td><label><fmt:message key="table.tr.passWord"
 							bundle="${msg}" />:</label></td>
-				<td><input type="password"
+				<td><input type="password" name="passWord"
 					placeholder=<fmt:message key="table.tr.placeholder.passWord" bundle="${msg}" />>
 				</td>
 			</tr>
@@ -96,4 +101,5 @@ table, tr, td {
 		<%@ include file="Footer.html"%>
 	</footer>
 </body>
+        <script type="text/javascript" src="scriptLib/Ajax_Json.js"></script>
 </html>
