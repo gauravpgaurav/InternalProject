@@ -77,27 +77,30 @@
 
 		</tr>
 		<tr>
-			<td><datalist id="json-datalist-test"></datalist> <input
-				type="text" name="testCode" id="ajax_test" list="json-datalist-test"
-				placeholder="Enter Test Code" onkeyup="fillTestDetails()"
-				onblur="fillTestDetails()"></td>
-			<td><input type="text" id="testName" name="testName"></td>
-			<td><input type="text" id="testCost" name="testCost"></td>
+			<td><datalist id="json-datalist-test0"></datalist> <input
+				type="text" name="testCode0" id="ajax_test0"
+				list="json-datalist-test0" placeholder="Enter Test Code"
+				onkeyup="fillTestDetails(0)" onblur="fillTestDetails(0)"></td>
+			<td><input type="text" id="testName0" name="testName"></td>
+			<td><input type="text" id="testCost0" name="testCost"></td>
 		</tr>
 	</table>
-	<table id="answerTable">
+	<form>
+		<input type="hidden" value="0" id="rowCount">
+		<table id="answerTable">
 
-		<tr>
-			<td style="width: 173px">Total :</td>
-			<td style="width: 173px"></td>
-		</tr>
-		<tr>
-			<td style="width: 173px"><input type="button"
-				value="Add More Test" class="btn" id="addRow"></td>
-			<td style="width: 173px"><input type="button"
-				value="Confirm Test" class="btn"></td>
-		</tr>
-	</table>
+			<tr>
+				<td style="width: 173px">Total :</td>
+				<td style="width: 173px"></td>
+			</tr>
+			<tr>
+				<td style="width: 173px"><input type="button"
+					value="Add More Test" class="btn" id="addRow"></td>
+				<td style="width: 173px"><input type="button"
+					value="Confirm Test" class="btn"></td>
+			</tr>
+		</table>
+	</form>
 	<br>
 	<br>
 	<footer>
