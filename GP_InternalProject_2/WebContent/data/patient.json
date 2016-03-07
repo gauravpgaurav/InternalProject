@@ -1,0 +1,8 @@
+[
+	{"patCode":"PAT101","name":"Gaurav","age":"21","handPhone":"9740591222","email":"gpant@sapient.com","gender":"male"},
+	{"patCode":"PAT102","name":"Dhawal","age":"20","handPhone":"9740591000","email":"dsin51@sapient.com","gender":"male"},
+	{"patCode":"PAT103","name":"Sakshi","age":"21","handPhone":"9740591234","email":"sp@sapient.com","gender":"female"},
+	{"patCode":"PAT104","name":"Ishika","age":"23","handPhone":"9740000233","email":"iban@sapient.com","gender":"female"},
+	{"patCode":"PAT105","name":"Shubhankar","age":"21","handPhone":"9971600545","email":"smayank@sapient.com","gender":"male"}
+
+]

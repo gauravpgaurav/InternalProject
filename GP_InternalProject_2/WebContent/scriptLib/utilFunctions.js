@@ -10,6 +10,8 @@ $(document).ready(
 					.getMonth() + 1, 0);
 
 			console.log(startDateFrom);
-            
-            $("#datepicker").attr("min",startDateFrom);
+
+			// $("#datepicker").attr("min",startDateFrom);
+			// $('#eg").prop('checked',true);
+			// $("#eg").prop('checked',true);
 		});

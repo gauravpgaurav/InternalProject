@@ -4,7 +4,6 @@
 var dataList = document.getElementById('json-datalist');
 var input = document.getElementById('ajax');
 
-console.log("Reached Here")
 // Create a new XMLHttpRequest.
 var request = new XMLHttpRequest();
 
