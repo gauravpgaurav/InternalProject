@@ -91,7 +91,7 @@
 
 			<tr>
 				<td style="width: 173px">Total :</td>
-				<td style="width: 173px"></td>
+				<td style="width: 173px"><label id="totalCost">0</label></td>
 			</tr>
 			<tr>
 				<td style="width: 173px"><input type="button"

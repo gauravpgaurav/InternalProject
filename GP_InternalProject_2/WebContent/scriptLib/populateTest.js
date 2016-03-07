@@ -12,7 +12,7 @@ $(document)
 										var count = parseInt($("#rowCount")
 												.val()) + 1;
 										$("#rowCount").val(count);
-										console.log("Count :" + count);
+										// console.log("Count :" + count);
 										$("#target")
 												.append(
 														"<tr><td><datalist id='json-datalist-test"
@@ -38,13 +38,11 @@ $(document)
 																+ "'></td></tr>");
 
 										testList(count);
+
 									});
 				});
 
 function testList(iter) {
-	console.log("json-datalist-test" + iter);
-	console.log("ajax_test" + iter);
-
 	var dataList = document.getElementById("json-datalist-test" + iter);
 	var input = document.getElementById("ajax_test" + iter);
 
@@ -91,6 +89,7 @@ function fillTestDetails(iter) {
 
 						testName.value = item.testName;
 						testCost.value = item.testCost;
+						calculateTotal(item.testCost);
 					}
 				});
 			} else {
@@ -100,4 +99,19 @@ function fillTestDetails(iter) {
 
 	request.open('GET', 'data/test.json', true);
 	request.send();
+
+}
+
+function calculateTotal(cost) {
+
+	var sum = parseInt($("#totalCost").html());
+	var count = parseInt($("#rowCount").val());
+	console.log("Count :" + count);
+	// console.log("Test 0 = " + $("#testCost0").val());
+	// for (i = 0; i < count; i++) {
+	// sum += parseInt($("#testCost" + i).val());
+	//
+	// }
+	sum += parseInt(cost);
+	$("#totalCost").html(sum);
 }
