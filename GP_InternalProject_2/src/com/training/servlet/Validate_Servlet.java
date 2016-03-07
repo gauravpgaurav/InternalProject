@@ -3,6 +3,7 @@ package com.training.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,10 +44,13 @@ public class Validate_Servlet extends HttpServlet {
 		String userName = request.getParameter("userName");
 		String passWord = request.getParameter("passWord");
 		String role = request.getParameter("role");
+		String labCode = request.getParameter("labCode");
 
-		if (userName.equals("gaurav") && role.equals("Operator") && passWord.equals("123"))
+		if (userName.equals("gaurav") && role.equals("Operator") && passWord.equals("123")) {
 			out.println("<h2>Valid</h2>");
-		else
+			RequestDispatcher rd = request.getRequestDispatcher("ValidateUser.jsp");
+			rd.forward(request, response);
+		} else
 			out.println("<h3>Not Valid</h3>");
 	}
 
