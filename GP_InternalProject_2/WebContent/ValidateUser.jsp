@@ -69,23 +69,33 @@
 	<br>
 	<hr>
 	<h3>Test Details</h3>
-	<table>
+	<table id="target">
 		<tr>
 			<th>Test Code</th>
 			<th>Test Name</th>
 			<th>Amount</th>
 
 		</tr>
+		<tr>
+			<td><datalist id="json-datalist-test"></datalist> <input
+				type="text" name="testCode" id="ajax_test" list="json-datalist-test"
+				placeholder="Enter Test Code" onkeyup="fillTestDetails()"
+				onblur="fillTestDetails()"></td>
+			<td><input type="text" id="testName" name="testName"></td>
+			<td><input type="text" id="testCost" name="testCost"></td>
+		</tr>
+	</table>
+	<table id="answerTable">
 
 		<tr>
-			<td>Total :</td>
-			<td colspan="2"></td>
+			<td style="width: 173px">Total :</td>
+			<td style="width: 173px"></td>
 		</tr>
 		<tr>
-			<td colspan="2"><input type="button" value="Add More Test"
-				class="btn"></td>
-			<td colspan="2"><input type="button" value="Confirm Test"
-				class="btn"></td>
+			<td style="width: 173px"><input type="button"
+				value="Add More Test" class="btn" id="addRow"></td>
+			<td style="width: 173px"><input type="button"
+				value="Confirm Test" class="btn"></td>
 		</tr>
 	</table>
 	<br>
@@ -96,4 +106,5 @@
 </body>
 <script type="text/javascript" src="scriptLib/populateFormDoc.js"></script>
 <script type="text/javascript" src="scriptLib/populateFormPat.js"></script>
+<script type="text/javascript" src="scriptLib/populateTest.js"></script>
 </html>

@@ -59,7 +59,12 @@ function fillPatientDetails() {
 						patAge.value = item.age;
 						patHandPhone.value = item.handPhone;
 						patEmail.value = item.email;
-					} 
+
+						if (item.gender == "male")
+							patMale.checked = "true";
+						else
+							patFemale.checked = "false";
+					}
 				});
 			} else {
 				console.log("Test Cleared!")
