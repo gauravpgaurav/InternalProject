@@ -43,6 +43,13 @@ th {
 	float: right;
 	width: 25px;
 	float: right;
+	padding-right: 3px;
+	padding-top: 4px;
+}
+
+.ico:hover{
+    background-color: darkslategrey;
+    border: 2px solid black;
 }
 
 #langContainer{
