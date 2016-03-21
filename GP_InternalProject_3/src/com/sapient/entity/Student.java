@@ -57,7 +57,7 @@ public class Student {
 		return academicMarkScore;
 	}
 
-	public void setAcademicMarkScore(int academicMarkScore) {
+	public void setAcademicMarkScore(double academicMarkScore) {
 		this.academicMarkScore = academicMarkScore;
 	}
 
@@ -65,7 +65,7 @@ public class Student {
 		return academicEventScore;
 	}
 
-	public void setAcademicEventScore(int academicEventScore) {
+	public void setAcademicEventScore(double academicEventScore) {
 		this.academicEventScore = academicEventScore;
 	}
 
@@ -73,7 +73,7 @@ public class Student {
 		return sportActivityScore;
 	}
 
-	public void setSportActivityScore(int sportActivityScore) {
+	public void setSportActivityScore(double sportActivityScore) {
 		this.sportActivityScore = sportActivityScore;
 	}
 
@@ -81,7 +81,7 @@ public class Student {
 		return culturalActivityScore;
 	}
 
-	public void setCulturalActivityScore(int culturalActivityScore) {
+	public void setCulturalActivityScore(double culturalActivityScore) {
 		this.culturalActivityScore = culturalActivityScore;
 	}
 
@@ -98,4 +98,13 @@ public class Student {
 		return ((0.50 * academicMarkScore) + (0.10 * academicEventScore) + (0.20 * sportActivityScore)
 				+ (0.20 * culturalActivityScore));
 	}
+
+	@Override
+	public String toString() {
+		return "Student [studentId=" + studentId + ", studentName=" + studentName + ", department=" + department
+				+ ", academicMarkScore=" + academicMarkScore + ", academicEventScore=" + academicEventScore
+				+ ", sportActivityScore=" + sportActivityScore + ", culturalActivityScore=" + culturalActivityScore
+				+ ", totalScore=" + totalScore + "]";
+	}
+
 }

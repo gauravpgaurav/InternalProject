@@ -1,12 +1,9 @@
 package com.sapient.testing;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import com.sapient.daos.StudentDAO;
@@ -22,7 +19,6 @@ public class HibernateTest {
 	public void tearDown() throws Exception {
 	}
 
-	
 	@Test
 	public void testAdd() {
 
@@ -31,7 +27,6 @@ public class HibernateTest {
 		int result = (int) dao.add(stud);
 		System.out.println(result);
 	}
-
 
 	@Test
 	public void testFind() {
