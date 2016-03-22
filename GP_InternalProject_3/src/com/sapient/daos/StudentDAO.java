@@ -22,7 +22,7 @@ public class StudentDAO implements MyDAO<Student> {
 
 		Integer key = null;
 		try {
-			studentObj.calculateTotalScore();
+			
 			factory = HiberUtils.getFactory();
 			session = factory.openSession();
 			tx = session.beginTransaction();

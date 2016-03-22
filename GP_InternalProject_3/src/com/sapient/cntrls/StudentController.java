@@ -44,8 +44,9 @@ public class StudentController {
 
 	@RequestMapping(value = "/submitDetails", method = RequestMethod.POST)
 	public ModelAndView initForm(@ModelAttribute("data") Student studentObj) {
-		System.out.println(studentObj);
 
+		studentObj.setTotalScore(studentObj.calculateTotalScore());
+		System.out.println(studentObj);
 		studDAO.add(studentObj);
 
 		return mdl;
