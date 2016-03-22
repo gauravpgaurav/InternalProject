@@ -3,6 +3,8 @@ package com.sapient.daos;
 import java.io.Serializable;
 import java.util.*;
 
+import javax.management.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -10,6 +12,7 @@ import org.hibernate.Transaction;
 import com.sapient.entity.Student;
 import com.sapient.ifaces.MyDAO;
 import com.sapient.utils.HiberUtils;
+import com.sun.org.apache.xpath.internal.operations.Gte;
 
 public class StudentDAO implements MyDAO<Student> {
 
@@ -22,7 +25,7 @@ public class StudentDAO implements MyDAO<Student> {
 
 		Integer key = null;
 		try {
-			
+
 			factory = HiberUtils.getFactory();
 			session = factory.openSession();
 			tx = session.beginTransaction();
@@ -90,6 +93,19 @@ public class StudentDAO implements MyDAO<Student> {
 		factory.close();
 
 		return true;
+	}
+
+	@Override
+	public List<Student> findTopThree(Serializable t) {
+
+		factory = HiberUtils.getFactory();
+		session = factory.openSession();
+		String hql = "FROM Student S WHERE S.department='" + t + "' ORDER BY S.total DESC";
+		Query query = session.createQuery(hql);
+		query.setMaxResults(3);
+
+		List<Student> results = (List<Student>) query.list();
+		return results;
 	}
 
 }

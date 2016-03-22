@@ -8,6 +8,8 @@ public interface MyDAO<T> {
 	public Serializable add(T t);
 
 	public T find(Serializable obj);
+	
+	public List<T> findTopThree(Serializable t);
 
 	public List<T> findAll();
 
