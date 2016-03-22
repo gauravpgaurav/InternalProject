@@ -1,5 +1,8 @@
 package com.sapient.entity;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Student {
 
 	private int studentId;
@@ -93,7 +96,7 @@ public class Student {
 		this.totalScore = totalScore;
 	}
 
-	private double calculateTotalScore() {
+	public double calculateTotalScore() {
 
 		return ((0.50 * academicMarkScore) + (0.10 * academicEventScore) + (0.20 * sportActivityScore)
 				+ (0.20 * culturalActivityScore));

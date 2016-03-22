@@ -2,6 +2,123 @@
     <wb-module deploy-name="GP_InternalProject_3">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="antlr-2.7.6.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/antlr-2.7.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="proxool-0.8.3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/proxool-0.8.3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jbosscache-core-3.2.1.GA.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/jbosscache-core-3.2.1.GA.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ojdbc14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/oraclexe/app/oracle/product/10.2.0/server/jdbc/lib/ojdbc14.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aspects-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/AOP/spring-aspects-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jta-1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/jta-1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aop-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/JDBC/spring-aop-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javassist-3.12.0.GA.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/javassist-3.12.0.GA.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="validation-api-1.0.0.GA.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/VALIDATION/validation-api-1.0.0.GA.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="infinispan-core-4.2.1.CR1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/infinispan-core-4.2.1.CR1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-tx-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/JDBC/spring-tx-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="backport-util-concurrent.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/backport-util-concurrent.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-beans-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/CORE/spring-beans-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-aop-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/AOP/spring-aop-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.7.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/slf4j-api-1.7.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-web-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/MVC/spring-web-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-context-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/CORE/spring-context-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-jpa-2.0-api-1.0.1.Final.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/hibernate-jpa-2.0-api-1.0.1.Final.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-validator-4.0.2.GA.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/VALIDATION/hibernate-validator-4.0.2.GA.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-collections-3.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/commons-collections-3.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-webmvc-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/MVC/spring-webmvc-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-nop-1.7.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/slf4j-nop-1.7.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-orm-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/JDBC/spring-orm-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate3.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/hibernate3.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="dom4j-1.6.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/dom4j-1.6.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-io-1.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/VALIDATION/commons-io-1.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="oscache-2.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/oscache-2.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-logging-1.2.1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/CORE/commons-logging-1.2.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-expression-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/CORE/spring-expression-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="commons-fileupload-1.1.1.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/VALIDATION/commons-fileupload-1.1.1.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-log4j12-1.5.6.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/VALIDATION/slf4j-log4j12-1.5.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="cglib-2.2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/cglib-2.2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="swarmcache-1.0RC2.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/swarmcache-1.0RC2.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="hibernate-testing.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/hibernate-testing.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ehcache-1.5.0.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/hibernate-distribution-3.6.10.Final/requiredLib/ehcache-1.5.0.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="slf4j-api-1.5.6.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/VALIDATION/slf4j-api-1.5.6.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-jdbc-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/JDBC/spring-jdbc-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j-1.2.14.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/VALIDATION/log4j-1.2.14.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="spring-core-4.1.5.RELEASE.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/C:/Users/gpant/Downloads/spring-framework-4.1.5.RELEASE-dist/spring-framework-4.1.5.RELEASE/libs/CORE/spring-core-4.1.5.RELEASE.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="GP_InternalProject_3"/>
         <property name="java-output-path" value="/GP_InternalProject_3/build/classes"/>
     </wb-module>
