@@ -14,7 +14,7 @@
 	<context:component-scan base-package="com.sapient.utils"></context:component-scan>
 
 	<bean id="mdl" class="org.springframework.web.servlet.ModelAndView" />
-	<bean class="com.sapient.daos.StudentDAO" />
+	<bean id="dao" class="com.sapient.daos.StudentDAO" />
 	<bean name="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"
 		p:prefix="/WEB-INF/JSP/" p:suffix=".jsp" />
