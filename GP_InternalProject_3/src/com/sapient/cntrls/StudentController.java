@@ -1,8 +1,12 @@
 package com.sapient.cntrls;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,6 +26,12 @@ public class StudentController {
 	@Autowired
 	Student studObj;
 
+	@RequestMapping("/")
+	public String init() {
+
+		return "index";
+	}
+
 	@RequestMapping("/add")
 	private ModelAndView initForm() {
 
@@ -31,10 +41,12 @@ public class StudentController {
 
 	}
 
-	@RequestMapping("/")
-	public String init() {
+	@RequestMapping("/view_dept")
+	private ModelAndView viewTopThree() {
 
-		return "index";
+		mdl.setViewName("ViewDepartment");
+		return mdl;
+
 	}
 
 	@ModelAttribute("department")
@@ -46,12 +58,21 @@ public class StudentController {
 	public ModelAndView initForm(@ModelAttribute("data") Student studentObj) {
 
 		mdl.setViewName("AddDetails");
-		
+
 		studentObj.setTotalScore(studentObj.calculateTotalScore());
 		System.out.println(studentObj);
 		studDAO.add(studentObj);
 
 		return mdl;
+
+	}
+
+	@RequestMapping(value = "/viewTopDetails/{dept}", method = RequestMethod.GET)
+	public String getPerformers(@PathVariable("dept") String department, Model mdl) {
+
+		List<Student> list = studDAO.findTopThree(department);
+		mdl.addAttribute("student", list);
+		return "ViewPerformers";
 
 	}
 }
