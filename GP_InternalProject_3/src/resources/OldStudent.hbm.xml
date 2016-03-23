@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 23, 2016 3:58:20 PM by Hibernate Tools 3.5.0.Final -->
+<!-- Generated Mar 21, 2016 12:31:55 PM by Hibernate Tools 3.5.0.Final -->
 <hibernate-mapping>
     <class name="com.sapient.entity.Student" table="STUDENT">
         <id name="studentId" type="int">
@@ -25,9 +25,6 @@
         </property>
         <property name="culturalActivityScore" type="double">
             <column name="CULTURALACTIVITYSCORE" />
-        </property>
-        <property name="imagePath" type="java.lang.String">
-            <column name="IMAGEPATH" />
         </property>
         <property name="totalScore" type="double">
             <column name="TOTALSCORE" />

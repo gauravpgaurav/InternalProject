@@ -19,6 +19,7 @@
 			<td><label>Sport Activity Score</label></td>
 			<td><label>Cultural Activity Score</label></td>
 			<td><label>Total Score</label></td>
+			<td><label>Picture</label></td>
 		</tr>
 
 		<c:forEach items="${student}" var="student">
@@ -31,6 +32,7 @@
 				<td>${student.sportActivityScore }</td>
 				<td>${student.culturalActivityScore }</td>
 				<td>${student.totalScore }</td>
+				<td><img src="${student.imagePath}" height="100px" width=""></img></td>
 		</c:forEach>
 	</table>
 </body>

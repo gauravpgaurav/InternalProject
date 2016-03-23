@@ -12,6 +12,7 @@ public class Student {
 	private double academicEventScore;
 	private double sportActivityScore;
 	private double culturalActivityScore;
+	private String imagePath;
 
 	private double totalScore;
 
@@ -19,8 +20,20 @@ public class Student {
 		super();
 	}
 
+	public Student(int studentId, String studentName, String department, double academicMarkScore,
+			double academicEventScore, double sportActivityScore, double culturalActivityScore) {
+		super();
+		this.studentId = studentId;
+		this.studentName = studentName;
+		this.department = department;
+		this.academicMarkScore = academicMarkScore;
+		this.academicEventScore = academicEventScore;
+		this.sportActivityScore = sportActivityScore;
+		this.culturalActivityScore = culturalActivityScore;
+	}
+
 	public Student(int studentId, String studentName, String department, int academicMarkScore, int academicEventScore,
-			int sportActivityScore, int culturalActivityScore) {
+			int sportActivityScore, int culturalActivityScore, String imagePath) {
 		super();
 		this.studentId = studentId;
 		this.studentName = studentName;
@@ -30,6 +43,7 @@ public class Student {
 		this.sportActivityScore = sportActivityScore;
 		this.culturalActivityScore = culturalActivityScore;
 		this.totalScore = calculateTotalScore();
+		this.imagePath = imagePath;
 	}
 
 	public int getStudentId() {
@@ -100,6 +114,14 @@ public class Student {
 
 		return ((0.50 * academicMarkScore) + (0.10 * academicEventScore) + (0.20 * sportActivityScore)
 				+ (0.20 * culturalActivityScore));
+	}
+
+	public String getImagePath() {
+		return imagePath;
+	}
+
+	public void setImagePath(String imagePath) {
+		this.imagePath = imagePath;
 	}
 
 	@Override

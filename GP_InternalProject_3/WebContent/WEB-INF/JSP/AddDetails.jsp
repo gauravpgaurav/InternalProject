@@ -12,7 +12,8 @@
 	<h2>Insert Student Details</h2>
 	<br>
 	<hr>
-	<form:form action="submitDetails" method="post">
+	<form:form action="submitDetails" method="post"
+		enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>Student ID :</td>
@@ -41,6 +42,10 @@
 			<tr>
 				<td>Cultural Activity Score (Out of 100) :</td>
 				<td><form:input path="culturalActivityScore" /></td>
+			</tr>
+			<tr>
+				<td>Upload Picture :</td>
+				<td><input name="image" type="file" /></td>
 			</tr>
 			<tr>
 				<td><input type="submit" value="Save Data"></td>
