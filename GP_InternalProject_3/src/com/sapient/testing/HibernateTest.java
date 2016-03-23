@@ -53,6 +53,21 @@ public class HibernateTest {
 	}
 
 	@Test
+	public void testFindTopThree() {
+
+		try {
+			StudentDAO dao = new StudentDAO();
+			List<Student> studentList = dao.findTopThree("EEE");
+
+			for (Student student : studentList) {
+				System.out.println(student);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	@Test
 	public void testDelete() {
 
 		try {
