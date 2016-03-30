@@ -28,7 +28,9 @@ MongoClient
 
 						// Insert some users
 						collection
-								.find()
+								.find({
+									_id : 101
+								})
 								.toArray(
 										function(err, result) {
 											if (err) {
@@ -40,9 +42,10 @@ MongoClient
 												console
 														.log('No document(s) found with defined "find" criteria!');
 											}
+											// Close connection
+											db.close();
 										});
-						// Close connection
-						db.close();
+
 					}
 
 				});
