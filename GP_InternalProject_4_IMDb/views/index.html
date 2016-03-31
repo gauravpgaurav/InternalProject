@@ -3,8 +3,7 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Movie Database</title>
-<link rel="stylesheet" type="text/css"
-	href="myStyle.css">
+<link rel="stylesheet" type="text/css" href="myStyle.css">
 <script type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script>
@@ -12,6 +11,7 @@
 
 		$("#home").show();
 		$("#searchResult").hide();
+
 		$.getJSON('MovieDetails', function(json) {
 			$.each(json,
 					function(index, element) {
@@ -28,6 +28,9 @@
 				.click(
 						function() {
 
+							$("#soundTrack")
+									.html(
+											"<thead><tr><th>Song Name</th><th>Singer</th><th>Song Duration</th><th>Play</th></tr></thead>");
 							var selectedId = $("#movieList").val();
 							console.log("ShowMovie/" + selectedId);
 							$("#home").hide();
@@ -66,6 +69,8 @@
 						});
 	});
 </script>
+<style type="text/css">
+</style>
 </head>
 <body>
 
@@ -81,15 +86,8 @@
 		<h4 id="movieYear"></h4>
 		<br>
 		<h3 id="moviePoster"></h3>
-		<table id=soundTrack>
-			<thead>
-				<tr>
-					<th>Song Name</th>
-					<th>Singer</th>
-					<th>Song Duration</th>
-					<th>Play</th>
-				</tr>
-			</thead>
+		<table id=soundTrack border="1">
+
 		</table>
 
 	</div>
