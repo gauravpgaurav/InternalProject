@@ -22,23 +22,38 @@
 					});
 		});
 
-		$("#goBtn").click(function() {
+		$("#goBtn").click(
+				function() {
 
-			var selectedId = $("#movieList").val();
-			console.log("ShowMovie/" + selectedId);
-			$("#home").hide();
-			$("#searchResult").show();
-			//window.location.href = "ShowMovie/" + selectedId;
+					var selectedId = $("#movieList").val();
+					console.log("ShowMovie/" + selectedId);
+					$("#home").hide();
+					$("#searchResult").show();
+					//window.location.href = "ShowMovie/" + selectedId;
 
-			$.getJSON('ShowMovie/' + selectedId, function(json) {
-				console.log(json);
-				$("#movieName").html(json.movieName);
-				$("#movieYear").html(json.movieYear);
-				$("#moviePoster").html(json.moviePoster);
-				console.log(json.soundTrack.songName);
-			});
+					$.getJSON('ShowMovie/' + selectedId, function(json) {
+						console.log(json);
+						$("#movieName").html(json.movieName);
+						$("#movieYear").html(json.movieYear);
+						$("#moviePoster").html(json.moviePoster);
 
-		});
+						var soundTrack = json.soundTrack;
+						for ( var i in soundTrack) {
+
+							$("#soundTrack").append(
+									"<tr><td>" + soundTrack[i].songName
+											+ "</td><td>"
+											+ soundTrack[i].singer
+											+ "</td><td>"
+											+ soundTrack[i].duration
+											+ "</td></tr>");
+							
+
+						}
+
+					});
+
+				});
 	});
 </script>
 </head>
