@@ -10,7 +10,7 @@ var MongoClient = mongodb.MongoClient;
 
 // Connection URL. This is where your mongodb server is running.
 var url = 'mongodb://localhost:27017/internalDb4';
-
+/*
 // Use connect method to connect to the Server
 MongoClient
 		.connect(
@@ -70,7 +70,7 @@ MongoClient
 					}
 
 				});
-
+*/
 app.get('/', function(req, res) {
 	res.sendfile('./views/index.html');
 });
@@ -88,8 +88,6 @@ app.get("/MovieDetails", function(req, res) {
 });
 
 app.get('/ShowMovie/:id', function(req, res) {
-
-	console.log("Finding Movie");
 
 	MongoClient.connect(url, function(err, db) {
 
